@@ -35,6 +35,9 @@ extern "C" {
 #define UNDEF_FUN_ERR() 
 #endif
 
+#define assert(cond) ASSERT(cond)
+// defer to macro in nautilus/nautk_assert.h
+
 #define RAND_MAX    2147483647
 
 typedef int clockid_t;
@@ -91,6 +94,7 @@ typedef int clockid_t;
 typedef long time_t;
 typedef void FILE;
 typedef uint64_t off_t;
+typedef bool_t bool;
 
 //Required by Lua 
 typedef long int clock_t;
@@ -129,7 +133,7 @@ extern int errno;
 time_t time(time_t * timer);
 
 
-
+#define calloc(n,s) ({ void *_p=malloc(n*s); memset(_p,0,n*s); _p; })
 void abort(void);
 int __popcountdi2(long long a);
 void exit(int status);

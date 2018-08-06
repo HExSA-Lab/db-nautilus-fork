@@ -1,6 +1,11 @@
 *.o
 *.cmd
+.config.old
 tags
-.config*
 *.bin
 *.iso
+scripts/
+src/app/
+include/app/
+include/config/
+include/autoconf.h

@@ -501,6 +501,19 @@ init (unsigned long mbd,
 
     runtime_init();
 
+#ifdef NAUT_CONFIG_APP
+	extern void app_main(void);
+
+	// cli disables maskable hardware interrupts
+	__asm volatile ("cli");
+	app_main();
+	// sti restores them
+	__asm volatile ("sti");
+
+	// if in qemu, this halts
+	//qemu_shutdown();
+#endif
+
     printk("Nautilus boot thread yielding (indefinitely)\n");
 
     /* we don't come back from this */
