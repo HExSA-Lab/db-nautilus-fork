@@ -361,7 +361,8 @@ CFLAGS:=   $(COMMON_FLAGS) \
 		   -Wno-unused-function \
 		   -Wno-unused-variable \
 		   -fno-common \
-		   -Wstrict-overflow=5 
+		   -Wstrict-overflow=5 \
+	       -mno-mmx -mno-sse2 -mno-sse3 -mno-sse4
 
 #                   -Wextra \
 #                   -Wpedantic \
